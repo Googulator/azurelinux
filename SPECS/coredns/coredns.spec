@@ -60,7 +60,7 @@ go_version_min=$(cat %{_builddir}/%{name}-%{version}/.go-version)
 echo "+++ using go version ${go_version_host} (minimum ${go_version_min})"
 echo "${go_version_host}" > %{_builddir}/%{name}-%{version}/.go-version
 
-make
+make BUILDOPTS="${BUILDOPTS}" GITCOMMIT="${GITCOMMIT}"
 
 %install
 install -m 755 -d %{buildroot}%{_bindir}
